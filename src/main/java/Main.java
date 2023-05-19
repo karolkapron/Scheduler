@@ -13,7 +13,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) throws IOException {
 
-        Reader readerFirstCalendar = new Reader("resources/Calendar12.json");
+        Reader readerFirstCalendar = new Reader("resources/test.json");
         Reader readerSecondCalendar = new Reader("resources/Calendar2.json");
         List<LocalTime> workingHoursFirst = readerFirstCalendar.readerWorkingHours();
         WorkingHours workingHourF  = new WorkingHours(workingHoursFirst.get(0), workingHoursFirst.get(1));
