@@ -4,16 +4,14 @@ import Model.Meeting;
 import JsonReader.Reader;
 import Model.MeetingSlot;
 import Model.WorkingHours;
-
-import java.io.IOException;
 import java.time.Duration;
 import java.time.LocalTime;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
 
-        Reader readerFirstCalendar = new Reader("resources/test.json");
+        Reader readerFirstCalendar = new Reader("resources/Calendar1.json");
         Reader readerSecondCalendar = new Reader("resources/Calendar2.json");
         List<LocalTime> workingHoursFirst = readerFirstCalendar.readerWorkingHours();
         WorkingHours workingHourF  = new WorkingHours(workingHoursFirst.get(0), workingHoursFirst.get(1));
@@ -30,7 +28,7 @@ public class Main {
 
         System.out.println("Available meeting slots:");
         for (MeetingSlot slot : availableSlots) {
-            System.out.println(slot.getStart() + " , " + slot.getEnd());
+            System.out.println(slot.getStart() + " - " + slot.getEnd());
         }
     }
 }
